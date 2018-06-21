@@ -35,6 +35,12 @@ public interface myGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableDec(myGrammarParser.VariableDecContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link myGrammarParser#stringDec}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringDec(myGrammarParser.StringDecContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link myGrammarParser#arrayDec}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -151,11 +157,11 @@ public interface myGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntegerTok(myGrammarParser.IntegerTokContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link myGrammarParser#floatTok}.
+	 * Visit a parse tree produced by {@link myGrammarParser#doubleTok}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFloatTok(myGrammarParser.FloatTokContext ctx);
+	T visitDoubleTok(myGrammarParser.DoubleTokContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link myGrammarParser#stringTok}.
 	 * @param ctx the parse tree
@@ -181,11 +187,11 @@ public interface myGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntegerTypeTok(myGrammarParser.IntegerTypeTokContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link myGrammarParser#floatTypeTok}.
+	 * Visit a parse tree produced by {@link myGrammarParser#doubleTypeTok}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx);
+	T visitDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link myGrammarParser#stringTypeTok}.
 	 * @param ctx the parse tree

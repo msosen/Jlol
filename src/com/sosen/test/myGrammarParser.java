@@ -17,42 +17,43 @@ public class myGrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		XD=1, BlockOpenBracket=2, BlockCloseBracket=3, Integer=4, Float=5, String=6, 
+		XD=1, BlockOpenBracket=2, BlockCloseBracket=3, Integer=4, Double=5, String=6, 
 		MathOperator=7, BooleanOperator=8, LogicalOperator=9, Boolean=10, If=11, 
-		Elsif=12, Else=13, Then=14, IntegerType=15, FloatType=16, StringType=17, 
+		Elsif=12, Else=13, Then=14, IntegerType=15, DoubleType=16, StringType=17, 
 		BooleanType=18, VarName=19, EqualMark=20, Dot=21, QuoteMark=22, Semicolon=23, 
 		OpenBracket=24, CloseBracket=25, SquareOpenBracket=26, SquareCloseBracket=27, 
 		Text=28, Whitespace=29, Newline=30, BlockComment=31, LineComment=32;
 	public static final int
 		RULE_startq = 0, RULE_instructionsBlock = 1, RULE_declaration = 2, RULE_variableDec = 3, 
-		RULE_arrayDec = 4, RULE_arrayVal = 5, RULE_varType = 6, RULE_value = 7, 
-		RULE_variableType = 8, RULE_ifStatement = 9, RULE_logicalStatement = 10, 
-		RULE_assignment = 11, RULE_equalMarkTok = 12, RULE_varNameTok = 13, RULE_squareOpenBracketTok = 14, 
-		RULE_squareCloseBracketTok = 15, RULE_openBracketTok = 16, RULE_closeBracketTok = 17, 
-		RULE_blockCloseBracketTok = 18, RULE_blockOpenBracketTok = 19, RULE_mathOperatorTok = 20, 
-		RULE_integerTok = 21, RULE_floatTok = 22, RULE_stringTok = 23, RULE_booleanTok = 24, 
-		RULE_booleanOperatorTok = 25, RULE_integerTypeTok = 26, RULE_floatTypeTok = 27, 
-		RULE_stringTypeTok = 28, RULE_booleanTypeTok = 29, RULE_ifTok = 30, RULE_elsifTok = 31, 
-		RULE_elseTok = 32, RULE_thenTok = 33, RULE_xdTok = 34;
+		RULE_stringDec = 4, RULE_arrayDec = 5, RULE_arrayVal = 6, RULE_varType = 7, 
+		RULE_value = 8, RULE_variableType = 9, RULE_ifStatement = 10, RULE_logicalStatement = 11, 
+		RULE_assignment = 12, RULE_equalMarkTok = 13, RULE_varNameTok = 14, RULE_squareOpenBracketTok = 15, 
+		RULE_squareCloseBracketTok = 16, RULE_openBracketTok = 17, RULE_closeBracketTok = 18, 
+		RULE_blockCloseBracketTok = 19, RULE_blockOpenBracketTok = 20, RULE_mathOperatorTok = 21, 
+		RULE_integerTok = 22, RULE_doubleTok = 23, RULE_stringTok = 24, RULE_booleanTok = 25, 
+		RULE_booleanOperatorTok = 26, RULE_integerTypeTok = 27, RULE_doubleTypeTok = 28, 
+		RULE_stringTypeTok = 29, RULE_booleanTypeTok = 30, RULE_ifTok = 31, RULE_elsifTok = 32, 
+		RULE_elseTok = 33, RULE_thenTok = 34, RULE_xdTok = 35;
 	public static final String[] ruleNames = {
-		"startq", "instructionsBlock", "declaration", "variableDec", "arrayDec", 
-		"arrayVal", "varType", "value", "variableType", "ifStatement", "logicalStatement", 
-		"assignment", "equalMarkTok", "varNameTok", "squareOpenBracketTok", "squareCloseBracketTok", 
-		"openBracketTok", "closeBracketTok", "blockCloseBracketTok", "blockOpenBracketTok", 
-		"mathOperatorTok", "integerTok", "floatTok", "stringTok", "booleanTok", 
-		"booleanOperatorTok", "integerTypeTok", "floatTypeTok", "stringTypeTok", 
-		"booleanTypeTok", "ifTok", "elsifTok", "elseTok", "thenTok", "xdTok"
+		"startq", "instructionsBlock", "declaration", "variableDec", "stringDec", 
+		"arrayDec", "arrayVal", "varType", "value", "variableType", "ifStatement", 
+		"logicalStatement", "assignment", "equalMarkTok", "varNameTok", "squareOpenBracketTok", 
+		"squareCloseBracketTok", "openBracketTok", "closeBracketTok", "blockCloseBracketTok", 
+		"blockOpenBracketTok", "mathOperatorTok", "integerTok", "doubleTok", "stringTok", 
+		"booleanTok", "booleanOperatorTok", "integerTypeTok", "doubleTypeTok", 
+		"stringTypeTok", "booleanTypeTok", "ifTok", "elsifTok", "elseTok", "thenTok", 
+		"xdTok"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'XD'", "'{'", "'}'", null, null, null, null, null, null, null, 
-		"'if'", "'elsif'", "'else'", "'then'", "'int'", "'float'", "'string'", 
+		"'if'", "'elsif'", "'else'", "'then'", "'int'", "'double'", "'String'", 
 		"'boolean'", null, "'='", "'.'", "'\"'", "';'", "'('", "')'", "'['", "']'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "XD", "BlockOpenBracket", "BlockCloseBracket", "Integer", "Float", 
+		null, "XD", "BlockOpenBracket", "BlockCloseBracket", "Integer", "Double", 
 		"String", "MathOperator", "BooleanOperator", "LogicalOperator", "Boolean", 
-		"If", "Elsif", "Else", "Then", "IntegerType", "FloatType", "StringType", 
+		"If", "Elsif", "Else", "Then", "IntegerType", "DoubleType", "StringType", 
 		"BooleanType", "VarName", "EqualMark", "Dot", "QuoteMark", "Semicolon", 
 		"OpenBracket", "CloseBracket", "SquareOpenBracket", "SquareCloseBracket", 
 		"Text", "Whitespace", "Newline", "BlockComment", "LineComment"
@@ -140,21 +141,21 @@ public class myGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(71); 
+			setState(73); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(70);
+				setState(72);
 				instructionsBlock();
 				}
 				}
-				setState(73); 
+				setState(75); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << If) | (1L << IntegerType) | (1L << FloatType) | (1L << StringType) | (1L << BooleanType) | (1L << VarName))) != 0) );
-			setState(75);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << If) | (1L << IntegerType) | (1L << DoubleType) | (1L << StringType) | (1L << BooleanType) | (1L << VarName))) != 0) );
+			setState(77);
 			match(EOF);
 			}
 		}
@@ -202,27 +203,27 @@ public class myGrammarParser extends Parser {
 		InstructionsBlockContext _localctx = new InstructionsBlockContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_instructionsBlock);
 		try {
-			setState(80);
+			setState(82);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(77);
+				setState(79);
 				declaration();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(78);
+				setState(80);
 				ifStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(79);
+				setState(81);
 				assignment();
 				}
 				break;
@@ -249,6 +250,9 @@ public class myGrammarParser extends Parser {
 		public ArrayDecContext arrayDec() {
 			return getRuleContext(ArrayDecContext.class,0);
 		}
+		public StringDecContext stringDec() {
+			return getRuleContext(StringDecContext.class,0);
+		}
 		public DeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -274,23 +278,29 @@ public class myGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(84);
+			setState(87);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				{
-				setState(82);
+				setState(84);
 				variableDec();
 				}
 				break;
 			case 2:
 				{
-				setState(83);
+				setState(85);
 				arrayDec();
 				}
 				break;
+			case 3:
+				{
+				setState(86);
+				stringDec();
+				}
+				break;
 			}
-			setState(86);
+			setState(89);
 			xdTok();
 			}
 		}
@@ -344,22 +354,83 @@ public class myGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(88);
+			setState(91);
 			varType();
-			setState(89);
+			setState(92);
 			varNameTok();
-			setState(93);
+			setState(96);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EqualMark) {
 				{
-				setState(90);
+				setState(93);
 				equalMarkTok();
-				setState(91);
+				setState(94);
 				value(0);
 				}
 			}
 
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class StringDecContext extends ParserRuleContext {
+		public StringTypeTokContext stringTypeTok() {
+			return getRuleContext(StringTypeTokContext.class,0);
+		}
+		public VarNameTokContext varNameTok() {
+			return getRuleContext(VarNameTokContext.class,0);
+		}
+		public EqualMarkTokContext equalMarkTok() {
+			return getRuleContext(EqualMarkTokContext.class,0);
+		}
+		public StringTokContext stringTok() {
+			return getRuleContext(StringTokContext.class,0);
+		}
+		public StringDecContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_stringDec; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).enterStringDec(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).exitStringDec(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof myGrammarVisitor ) return ((myGrammarVisitor<? extends T>)visitor).visitStringDec(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final StringDecContext stringDec() throws RecognitionException {
+		StringDecContext _localctx = new StringDecContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_stringDec);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(98);
+			stringTypeTok();
+			setState(99);
+			varNameTok();
+			{
+			setState(100);
+			equalMarkTok();
+			setState(101);
+			stringTok();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -419,43 +490,43 @@ public class myGrammarParser extends Parser {
 
 	public final ArrayDecContext arrayDec() throws RecognitionException {
 		ArrayDecContext _localctx = new ArrayDecContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_arrayDec);
+		enterRule(_localctx, 10, RULE_arrayDec);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(95);
+			setState(103);
 			varType();
-			setState(96);
-			varNameTok();
-			setState(97);
-			squareOpenBracketTok();
-			setState(98);
-			squareCloseBracketTok();
 			setState(104);
+			varNameTok();
+			setState(105);
+			squareOpenBracketTok();
+			setState(106);
+			squareCloseBracketTok();
+			setState(112);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SquareOpenBracket) {
 				{
 				{
-				setState(99);
+				setState(107);
 				squareOpenBracketTok();
-				setState(100);
+				setState(108);
 				squareCloseBracketTok();
 				}
 				}
-				setState(106);
+				setState(114);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(110);
+			setState(118);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EqualMark) {
 				{
-				setState(107);
+				setState(115);
 				equalMarkTok();
-				setState(108);
+				setState(116);
 				value(0);
 				}
 			}
@@ -516,37 +587,37 @@ public class myGrammarParser extends Parser {
 
 	public final ArrayValContext arrayVal() throws RecognitionException {
 		ArrayValContext _localctx = new ArrayValContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_arrayVal);
+		enterRule(_localctx, 12, RULE_arrayVal);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
+			setState(120);
 			varNameTok();
-			setState(113);
+			setState(121);
 			squareOpenBracketTok();
-			setState(114);
+			setState(122);
 			integerTok();
-			setState(115);
+			setState(123);
 			squareCloseBracketTok();
 			{
-			setState(122);
+			setState(130);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(116);
+					setState(124);
 					squareOpenBracketTok();
-					setState(117);
+					setState(125);
 					integerTok();
-					setState(118);
+					setState(126);
 					squareCloseBracketTok();
 					}
 					} 
 				}
-				setState(124);
+				setState(132);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			}
@@ -568,11 +639,8 @@ public class myGrammarParser extends Parser {
 		public IntegerTypeTokContext integerTypeTok() {
 			return getRuleContext(IntegerTypeTokContext.class,0);
 		}
-		public FloatTypeTokContext floatTypeTok() {
-			return getRuleContext(FloatTypeTokContext.class,0);
-		}
-		public StringTypeTokContext stringTypeTok() {
-			return getRuleContext(StringTypeTokContext.class,0);
+		public DoubleTypeTokContext doubleTypeTok() {
+			return getRuleContext(DoubleTypeTokContext.class,0);
 		}
 		public BooleanTypeTokContext booleanTypeTok() {
 			return getRuleContext(BooleanTypeTokContext.class,0);
@@ -598,36 +666,29 @@ public class myGrammarParser extends Parser {
 
 	public final VarTypeContext varType() throws RecognitionException {
 		VarTypeContext _localctx = new VarTypeContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_varType);
+		enterRule(_localctx, 14, RULE_varType);
 		try {
-			setState(129);
+			setState(136);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IntegerType:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(125);
+				setState(133);
 				integerTypeTok();
 				}
 				break;
-			case FloatType:
+			case DoubleType:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(126);
-				floatTypeTok();
-				}
-				break;
-			case StringType:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(127);
-				stringTypeTok();
+				setState(134);
+				doubleTypeTok();
 				}
 				break;
 			case BooleanType:
-				enterOuterAlt(_localctx, 4);
+				enterOuterAlt(_localctx, 3);
 				{
-				setState(128);
+				setState(135);
 				booleanTypeTok();
 				}
 				break;
@@ -699,46 +760,46 @@ public class myGrammarParser extends Parser {
 		int _parentState = getState();
 		ValueContext _localctx = new ValueContext(_ctx, _parentState);
 		ValueContext _prevctx = _localctx;
-		int _startState = 14;
-		enterRecursionRule(_localctx, 14, RULE_value, _p);
+		int _startState = 16;
+		enterRecursionRule(_localctx, 16, RULE_value, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(146);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				{
-				setState(132);
+				setState(139);
 				openBracketTok();
-				setState(133);
+				setState(140);
 				value(0);
-				setState(134);
+				setState(141);
 				closeBracketTok();
 				}
 				break;
 			case 2:
 				{
-				setState(136);
+				setState(143);
 				variableType();
 				}
 				break;
 			case 3:
 				{
-				setState(137);
+				setState(144);
 				arrayVal();
 				}
 				break;
 			case 4:
 				{
-				setState(138);
+				setState(145);
 				varNameTok();
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(147);
+			setState(154);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -749,16 +810,16 @@ public class myGrammarParser extends Parser {
 					{
 					_localctx = new ValueContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_value);
-					setState(141);
+					setState(148);
 					if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-					setState(142);
+					setState(149);
 					mathOperatorTok();
-					setState(143);
+					setState(150);
 					value(6);
 					}
 					} 
 				}
-				setState(149);
+				setState(156);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			}
@@ -779,8 +840,8 @@ public class myGrammarParser extends Parser {
 		public IntegerTokContext integerTok() {
 			return getRuleContext(IntegerTokContext.class,0);
 		}
-		public FloatTokContext floatTok() {
-			return getRuleContext(FloatTokContext.class,0);
+		public DoubleTokContext doubleTok() {
+			return getRuleContext(DoubleTokContext.class,0);
 		}
 		public StringTokContext stringTok() {
 			return getRuleContext(StringTokContext.class,0);
@@ -806,29 +867,29 @@ public class myGrammarParser extends Parser {
 
 	public final VariableTypeContext variableType() throws RecognitionException {
 		VariableTypeContext _localctx = new VariableTypeContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_variableType);
+		enterRule(_localctx, 18, RULE_variableType);
 		try {
-			setState(153);
+			setState(160);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Integer:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(150);
+				setState(157);
 				integerTok();
 				}
 				break;
-			case Float:
+			case Double:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(151);
-				floatTok();
+				setState(158);
+				doubleTok();
 				}
 				break;
 			case String:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(152);
+				setState(159);
 				stringTok();
 				}
 				break;
@@ -914,57 +975,57 @@ public class myGrammarParser extends Parser {
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
 		IfStatementContext _localctx = new IfStatementContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_ifStatement);
+		enterRule(_localctx, 20, RULE_ifStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(155);
-			ifTok();
-			setState(156);
-			openBracketTok();
-			setState(157);
-			logicalStatement();
-			setState(158);
-			closeBracketTok();
-			setState(159);
-			thenTok();
-			setState(160);
-			blockOpenBracketTok();
-			setState(161);
-			instructionsBlock();
 			setState(162);
+			ifTok();
+			setState(163);
+			openBracketTok();
+			setState(164);
+			logicalStatement();
+			setState(165);
+			closeBracketTok();
+			setState(166);
+			thenTok();
+			setState(167);
+			blockOpenBracketTok();
+			setState(168);
+			instructionsBlock();
+			setState(169);
 			blockCloseBracketTok();
-			setState(177);
+			setState(184);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(171);
+				setState(178);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==Elsif) {
 					{
 					{
-					setState(163);
+					setState(170);
 					elsifTok();
-					setState(164);
+					setState(171);
 					openBracketTok();
-					setState(165);
+					setState(172);
 					logicalStatement();
-					setState(166);
+					setState(173);
 					closeBracketTok();
-					setState(167);
+					setState(174);
 					instructionsBlock();
 					}
 					}
-					setState(173);
+					setState(180);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(174);
+				setState(181);
 				elseTok();
-				setState(175);
+				setState(182);
 				instructionsBlock();
 				}
 				break;
@@ -1040,24 +1101,24 @@ public class myGrammarParser extends Parser {
 
 	public final LogicalStatementContext logicalStatement() throws RecognitionException {
 		LogicalStatementContext _localctx = new LogicalStatementContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_logicalStatement);
+		enterRule(_localctx, 22, RULE_logicalStatement);
 		try {
-			setState(184);
+			setState(191);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Integer:
-			case Float:
+			case Double:
 			case String:
 			case VarName:
 			case OpenBracket:
 				_localctx = new LogicalStatementBooleanExprContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(179);
+				setState(186);
 				value(0);
-				setState(180);
+				setState(187);
 				booleanOperatorTok();
-				setState(181);
+				setState(188);
 				value(0);
 				}
 				break;
@@ -1065,7 +1126,7 @@ public class myGrammarParser extends Parser {
 				_localctx = new LogicalStatementBooleanContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(183);
+				setState(190);
 				booleanTok();
 				}
 				break;
@@ -1121,36 +1182,36 @@ public class myGrammarParser extends Parser {
 
 	public final AssignmentContext assignment() throws RecognitionException {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_assignment);
+		enterRule(_localctx, 24, RULE_assignment);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(188);
+			setState(195);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IntegerType:
-			case FloatType:
+			case DoubleType:
 			case StringType:
 			case BooleanType:
 				{
-				setState(186);
+				setState(193);
 				declaration();
 				}
 				break;
 			case VarName:
 				{
-				setState(187);
+				setState(194);
 				varNameTok();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(190);
+			setState(197);
 			equalMarkTok();
-			setState(191);
+			setState(198);
 			value(0);
-			setState(192);
+			setState(199);
 			xdTok();
 			}
 		}
@@ -1188,11 +1249,11 @@ public class myGrammarParser extends Parser {
 
 	public final EqualMarkTokContext equalMarkTok() throws RecognitionException {
 		EqualMarkTokContext _localctx = new EqualMarkTokContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_equalMarkTok);
+		enterRule(_localctx, 26, RULE_equalMarkTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(194);
+			setState(201);
 			match(EqualMark);
 			}
 		}
@@ -1230,11 +1291,11 @@ public class myGrammarParser extends Parser {
 
 	public final VarNameTokContext varNameTok() throws RecognitionException {
 		VarNameTokContext _localctx = new VarNameTokContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_varNameTok);
+		enterRule(_localctx, 28, RULE_varNameTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(196);
+			setState(203);
 			match(VarName);
 			}
 		}
@@ -1272,11 +1333,11 @@ public class myGrammarParser extends Parser {
 
 	public final SquareOpenBracketTokContext squareOpenBracketTok() throws RecognitionException {
 		SquareOpenBracketTokContext _localctx = new SquareOpenBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_squareOpenBracketTok);
+		enterRule(_localctx, 30, RULE_squareOpenBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198);
+			setState(205);
 			match(SquareOpenBracket);
 			}
 		}
@@ -1314,11 +1375,11 @@ public class myGrammarParser extends Parser {
 
 	public final SquareCloseBracketTokContext squareCloseBracketTok() throws RecognitionException {
 		SquareCloseBracketTokContext _localctx = new SquareCloseBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_squareCloseBracketTok);
+		enterRule(_localctx, 32, RULE_squareCloseBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(200);
+			setState(207);
 			match(SquareCloseBracket);
 			}
 		}
@@ -1356,11 +1417,11 @@ public class myGrammarParser extends Parser {
 
 	public final OpenBracketTokContext openBracketTok() throws RecognitionException {
 		OpenBracketTokContext _localctx = new OpenBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_openBracketTok);
+		enterRule(_localctx, 34, RULE_openBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(202);
+			setState(209);
 			match(OpenBracket);
 			}
 		}
@@ -1398,11 +1459,11 @@ public class myGrammarParser extends Parser {
 
 	public final CloseBracketTokContext closeBracketTok() throws RecognitionException {
 		CloseBracketTokContext _localctx = new CloseBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_closeBracketTok);
+		enterRule(_localctx, 36, RULE_closeBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(204);
+			setState(211);
 			match(CloseBracket);
 			}
 		}
@@ -1440,11 +1501,11 @@ public class myGrammarParser extends Parser {
 
 	public final BlockCloseBracketTokContext blockCloseBracketTok() throws RecognitionException {
 		BlockCloseBracketTokContext _localctx = new BlockCloseBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_blockCloseBracketTok);
+		enterRule(_localctx, 38, RULE_blockCloseBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(206);
+			setState(213);
 			match(BlockCloseBracket);
 			}
 		}
@@ -1482,11 +1543,11 @@ public class myGrammarParser extends Parser {
 
 	public final BlockOpenBracketTokContext blockOpenBracketTok() throws RecognitionException {
 		BlockOpenBracketTokContext _localctx = new BlockOpenBracketTokContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_blockOpenBracketTok);
+		enterRule(_localctx, 40, RULE_blockOpenBracketTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(208);
+			setState(215);
 			match(BlockOpenBracket);
 			}
 		}
@@ -1524,11 +1585,11 @@ public class myGrammarParser extends Parser {
 
 	public final MathOperatorTokContext mathOperatorTok() throws RecognitionException {
 		MathOperatorTokContext _localctx = new MathOperatorTokContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_mathOperatorTok);
+		enterRule(_localctx, 42, RULE_mathOperatorTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(210);
+			setState(217);
 			match(MathOperator);
 			}
 		}
@@ -1566,11 +1627,11 @@ public class myGrammarParser extends Parser {
 
 	public final IntegerTokContext integerTok() throws RecognitionException {
 		IntegerTokContext _localctx = new IntegerTokContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_integerTok);
+		enterRule(_localctx, 44, RULE_integerTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(212);
+			setState(219);
 			match(Integer);
 			}
 		}
@@ -1585,35 +1646,35 @@ public class myGrammarParser extends Parser {
 		return _localctx;
 	}
 
-	public static class FloatTokContext extends ParserRuleContext {
-		public TerminalNode Float() { return getToken(myGrammarParser.Float, 0); }
-		public FloatTokContext(ParserRuleContext parent, int invokingState) {
+	public static class DoubleTokContext extends ParserRuleContext {
+		public TerminalNode Double() { return getToken(myGrammarParser.Double, 0); }
+		public DoubleTokContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_floatTok; }
+		@Override public int getRuleIndex() { return RULE_doubleTok; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).enterFloatTok(this);
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).enterDoubleTok(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).exitFloatTok(this);
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).exitDoubleTok(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof myGrammarVisitor ) return ((myGrammarVisitor<? extends T>)visitor).visitFloatTok(this);
+			if ( visitor instanceof myGrammarVisitor ) return ((myGrammarVisitor<? extends T>)visitor).visitDoubleTok(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final FloatTokContext floatTok() throws RecognitionException {
-		FloatTokContext _localctx = new FloatTokContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_floatTok);
+	public final DoubleTokContext doubleTok() throws RecognitionException {
+		DoubleTokContext _localctx = new DoubleTokContext(_ctx, getState());
+		enterRule(_localctx, 46, RULE_doubleTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(214);
-			match(Float);
+			setState(221);
+			match(Double);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1650,11 +1711,11 @@ public class myGrammarParser extends Parser {
 
 	public final StringTokContext stringTok() throws RecognitionException {
 		StringTokContext _localctx = new StringTokContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_stringTok);
+		enterRule(_localctx, 48, RULE_stringTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(216);
+			setState(223);
 			match(String);
 			}
 		}
@@ -1692,11 +1753,11 @@ public class myGrammarParser extends Parser {
 
 	public final BooleanTokContext booleanTok() throws RecognitionException {
 		BooleanTokContext _localctx = new BooleanTokContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_booleanTok);
+		enterRule(_localctx, 50, RULE_booleanTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(218);
+			setState(225);
 			match(Boolean);
 			}
 		}
@@ -1734,11 +1795,11 @@ public class myGrammarParser extends Parser {
 
 	public final BooleanOperatorTokContext booleanOperatorTok() throws RecognitionException {
 		BooleanOperatorTokContext _localctx = new BooleanOperatorTokContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_booleanOperatorTok);
+		enterRule(_localctx, 52, RULE_booleanOperatorTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(220);
+			setState(227);
 			match(BooleanOperator);
 			}
 		}
@@ -1776,11 +1837,11 @@ public class myGrammarParser extends Parser {
 
 	public final IntegerTypeTokContext integerTypeTok() throws RecognitionException {
 		IntegerTypeTokContext _localctx = new IntegerTypeTokContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_integerTypeTok);
+		enterRule(_localctx, 54, RULE_integerTypeTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(222);
+			setState(229);
 			match(IntegerType);
 			}
 		}
@@ -1795,35 +1856,35 @@ public class myGrammarParser extends Parser {
 		return _localctx;
 	}
 
-	public static class FloatTypeTokContext extends ParserRuleContext {
-		public TerminalNode FloatType() { return getToken(myGrammarParser.FloatType, 0); }
-		public FloatTypeTokContext(ParserRuleContext parent, int invokingState) {
+	public static class DoubleTypeTokContext extends ParserRuleContext {
+		public TerminalNode DoubleType() { return getToken(myGrammarParser.DoubleType, 0); }
+		public DoubleTypeTokContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_floatTypeTok; }
+		@Override public int getRuleIndex() { return RULE_doubleTypeTok; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).enterFloatTypeTok(this);
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).enterDoubleTypeTok(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).exitFloatTypeTok(this);
+			if ( listener instanceof myGrammarListener ) ((myGrammarListener)listener).exitDoubleTypeTok(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof myGrammarVisitor ) return ((myGrammarVisitor<? extends T>)visitor).visitFloatTypeTok(this);
+			if ( visitor instanceof myGrammarVisitor ) return ((myGrammarVisitor<? extends T>)visitor).visitDoubleTypeTok(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final FloatTypeTokContext floatTypeTok() throws RecognitionException {
-		FloatTypeTokContext _localctx = new FloatTypeTokContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_floatTypeTok);
+	public final DoubleTypeTokContext doubleTypeTok() throws RecognitionException {
+		DoubleTypeTokContext _localctx = new DoubleTypeTokContext(_ctx, getState());
+		enterRule(_localctx, 56, RULE_doubleTypeTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(224);
-			match(FloatType);
+			setState(231);
+			match(DoubleType);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1860,11 +1921,11 @@ public class myGrammarParser extends Parser {
 
 	public final StringTypeTokContext stringTypeTok() throws RecognitionException {
 		StringTypeTokContext _localctx = new StringTypeTokContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_stringTypeTok);
+		enterRule(_localctx, 58, RULE_stringTypeTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(226);
+			setState(233);
 			match(StringType);
 			}
 		}
@@ -1902,11 +1963,11 @@ public class myGrammarParser extends Parser {
 
 	public final BooleanTypeTokContext booleanTypeTok() throws RecognitionException {
 		BooleanTypeTokContext _localctx = new BooleanTypeTokContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_booleanTypeTok);
+		enterRule(_localctx, 60, RULE_booleanTypeTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(228);
+			setState(235);
 			match(BooleanType);
 			}
 		}
@@ -1944,11 +2005,11 @@ public class myGrammarParser extends Parser {
 
 	public final IfTokContext ifTok() throws RecognitionException {
 		IfTokContext _localctx = new IfTokContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_ifTok);
+		enterRule(_localctx, 62, RULE_ifTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(230);
+			setState(237);
 			match(If);
 			}
 		}
@@ -1986,11 +2047,11 @@ public class myGrammarParser extends Parser {
 
 	public final ElsifTokContext elsifTok() throws RecognitionException {
 		ElsifTokContext _localctx = new ElsifTokContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_elsifTok);
+		enterRule(_localctx, 64, RULE_elsifTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(232);
+			setState(239);
 			match(Elsif);
 			}
 		}
@@ -2028,11 +2089,11 @@ public class myGrammarParser extends Parser {
 
 	public final ElseTokContext elseTok() throws RecognitionException {
 		ElseTokContext _localctx = new ElseTokContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_elseTok);
+		enterRule(_localctx, 66, RULE_elseTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(234);
+			setState(241);
 			match(Else);
 			}
 		}
@@ -2070,11 +2131,11 @@ public class myGrammarParser extends Parser {
 
 	public final ThenTokContext thenTok() throws RecognitionException {
 		ThenTokContext _localctx = new ThenTokContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_thenTok);
+		enterRule(_localctx, 68, RULE_thenTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(236);
+			setState(243);
 			match(Then);
 			}
 		}
@@ -2112,11 +2173,11 @@ public class myGrammarParser extends Parser {
 
 	public final XdTokContext xdTok() throws RecognitionException {
 		XdTokContext _localctx = new XdTokContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_xdTok);
+		enterRule(_localctx, 70, RULE_xdTok);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(238);
+			setState(245);
 			match(XD);
 			}
 		}
@@ -2133,7 +2194,7 @@ public class myGrammarParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 7:
+		case 8:
 			return value_sempred((ValueContext)_localctx, predIndex);
 		}
 		return true;
@@ -2147,77 +2208,80 @@ public class myGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u00f3\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u00fa\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
-		"\t!\4\"\t\"\4#\t#\4$\t$\3\2\6\2J\n\2\r\2\16\2K\3\2\3\2\3\3\3\3\3\3\5\3"+
-		"S\n\3\3\4\3\4\5\4W\n\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\5\5`\n\5\3\6\3\6\3"+
-		"\6\3\6\3\6\3\6\3\6\7\6i\n\6\f\6\16\6l\13\6\3\6\3\6\3\6\5\6q\n\6\3\7\3"+
-		"\7\3\7\3\7\3\7\3\7\3\7\3\7\7\7{\n\7\f\7\16\7~\13\7\3\b\3\b\3\b\3\b\5\b"+
-		"\u0084\n\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u008e\n\t\3\t\3\t\3\t\3"+
-		"\t\7\t\u0094\n\t\f\t\16\t\u0097\13\t\3\n\3\n\3\n\5\n\u009c\n\n\3\13\3"+
-		"\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\7\13\u00ac"+
-		"\n\13\f\13\16\13\u00af\13\13\3\13\3\13\3\13\5\13\u00b4\n\13\3\f\3\f\3"+
-		"\f\3\f\3\f\5\f\u00bb\n\f\3\r\3\r\5\r\u00bf\n\r\3\r\3\r\3\r\3\r\3\16\3"+
-		"\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23\3\24\3\24\3\25\3"+
-		"\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3"+
-		"\34\3\35\3\35\3\36\3\36\3\37\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3$\3$\3$\2"+
-		"\3\20%\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<"+
-		">@BDF\2\2\2\u00e4\2I\3\2\2\2\4R\3\2\2\2\6V\3\2\2\2\bZ\3\2\2\2\na\3\2\2"+
-		"\2\fr\3\2\2\2\16\u0083\3\2\2\2\20\u008d\3\2\2\2\22\u009b\3\2\2\2\24\u009d"+
-		"\3\2\2\2\26\u00ba\3\2\2\2\30\u00be\3\2\2\2\32\u00c4\3\2\2\2\34\u00c6\3"+
-		"\2\2\2\36\u00c8\3\2\2\2 \u00ca\3\2\2\2\"\u00cc\3\2\2\2$\u00ce\3\2\2\2"+
-		"&\u00d0\3\2\2\2(\u00d2\3\2\2\2*\u00d4\3\2\2\2,\u00d6\3\2\2\2.\u00d8\3"+
-		"\2\2\2\60\u00da\3\2\2\2\62\u00dc\3\2\2\2\64\u00de\3\2\2\2\66\u00e0\3\2"+
-		"\2\28\u00e2\3\2\2\2:\u00e4\3\2\2\2<\u00e6\3\2\2\2>\u00e8\3\2\2\2@\u00ea"+
-		"\3\2\2\2B\u00ec\3\2\2\2D\u00ee\3\2\2\2F\u00f0\3\2\2\2HJ\5\4\3\2IH\3\2"+
-		"\2\2JK\3\2\2\2KI\3\2\2\2KL\3\2\2\2LM\3\2\2\2MN\7\2\2\3N\3\3\2\2\2OS\5"+
-		"\6\4\2PS\5\24\13\2QS\5\30\r\2RO\3\2\2\2RP\3\2\2\2RQ\3\2\2\2S\5\3\2\2\2"+
-		"TW\5\b\5\2UW\5\n\6\2VT\3\2\2\2VU\3\2\2\2WX\3\2\2\2XY\5F$\2Y\7\3\2\2\2"+
-		"Z[\5\16\b\2[_\5\34\17\2\\]\5\32\16\2]^\5\20\t\2^`\3\2\2\2_\\\3\2\2\2_"+
-		"`\3\2\2\2`\t\3\2\2\2ab\5\16\b\2bc\5\34\17\2cd\5\36\20\2dj\5 \21\2ef\5"+
-		"\36\20\2fg\5 \21\2gi\3\2\2\2he\3\2\2\2il\3\2\2\2jh\3\2\2\2jk\3\2\2\2k"+
-		"p\3\2\2\2lj\3\2\2\2mn\5\32\16\2no\5\20\t\2oq\3\2\2\2pm\3\2\2\2pq\3\2\2"+
-		"\2q\13\3\2\2\2rs\5\34\17\2st\5\36\20\2tu\5,\27\2u|\5 \21\2vw\5\36\20\2"+
-		"wx\5,\27\2xy\5 \21\2y{\3\2\2\2zv\3\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2"+
-		"}\r\3\2\2\2~|\3\2\2\2\177\u0084\5\66\34\2\u0080\u0084\58\35\2\u0081\u0084"+
-		"\5:\36\2\u0082\u0084\5<\37\2\u0083\177\3\2\2\2\u0083\u0080\3\2\2\2\u0083"+
-		"\u0081\3\2\2\2\u0083\u0082\3\2\2\2\u0084\17\3\2\2\2\u0085\u0086\b\t\1"+
-		"\2\u0086\u0087\5\"\22\2\u0087\u0088\5\20\t\2\u0088\u0089\5$\23\2\u0089"+
-		"\u008e\3\2\2\2\u008a\u008e\5\22\n\2\u008b\u008e\5\f\7\2\u008c\u008e\5"+
-		"\34\17\2\u008d\u0085\3\2\2\2\u008d\u008a\3\2\2\2\u008d\u008b\3\2\2\2\u008d"+
-		"\u008c\3\2\2\2\u008e\u0095\3\2\2\2\u008f\u0090\f\7\2\2\u0090\u0091\5*"+
-		"\26\2\u0091\u0092\5\20\t\b\u0092\u0094\3\2\2\2\u0093\u008f\3\2\2\2\u0094"+
-		"\u0097\3\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096\21\3\2\2"+
-		"\2\u0097\u0095\3\2\2\2\u0098\u009c\5,\27\2\u0099\u009c\5.\30\2\u009a\u009c"+
-		"\5\60\31\2\u009b\u0098\3\2\2\2\u009b\u0099\3\2\2\2\u009b\u009a\3\2\2\2"+
-		"\u009c\23\3\2\2\2\u009d\u009e\5> \2\u009e\u009f\5\"\22\2\u009f\u00a0\5"+
-		"\26\f\2\u00a0\u00a1\5$\23\2\u00a1\u00a2\5D#\2\u00a2\u00a3\5(\25\2\u00a3"+
-		"\u00a4\5\4\3\2\u00a4\u00b3\5&\24\2\u00a5\u00a6\5@!\2\u00a6\u00a7\5\"\22"+
-		"\2\u00a7\u00a8\5\26\f\2\u00a8\u00a9\5$\23\2\u00a9\u00aa\5\4\3\2\u00aa"+
-		"\u00ac\3\2\2\2\u00ab\u00a5\3\2\2\2\u00ac\u00af\3\2\2\2\u00ad\u00ab\3\2"+
-		"\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b0\3\2\2\2\u00af\u00ad\3\2\2\2\u00b0"+
-		"\u00b1\5B\"\2\u00b1\u00b2\5\4\3\2\u00b2\u00b4\3\2\2\2\u00b3\u00ad\3\2"+
-		"\2\2\u00b3\u00b4\3\2\2\2\u00b4\25\3\2\2\2\u00b5\u00b6\5\20\t\2\u00b6\u00b7"+
-		"\5\64\33\2\u00b7\u00b8\5\20\t\2\u00b8\u00bb\3\2\2\2\u00b9\u00bb\5\62\32"+
-		"\2\u00ba\u00b5\3\2\2\2\u00ba\u00b9\3\2\2\2\u00bb\27\3\2\2\2\u00bc\u00bf"+
-		"\5\6\4\2\u00bd\u00bf\5\34\17\2\u00be\u00bc\3\2\2\2\u00be\u00bd\3\2\2\2"+
-		"\u00bf\u00c0\3\2\2\2\u00c0\u00c1\5\32\16\2\u00c1\u00c2\5\20\t\2\u00c2"+
-		"\u00c3\5F$\2\u00c3\31\3\2\2\2\u00c4\u00c5\7\26\2\2\u00c5\33\3\2\2\2\u00c6"+
-		"\u00c7\7\25\2\2\u00c7\35\3\2\2\2\u00c8\u00c9\7\34\2\2\u00c9\37\3\2\2\2"+
-		"\u00ca\u00cb\7\35\2\2\u00cb!\3\2\2\2\u00cc\u00cd\7\32\2\2\u00cd#\3\2\2"+
-		"\2\u00ce\u00cf\7\33\2\2\u00cf%\3\2\2\2\u00d0\u00d1\7\5\2\2\u00d1\'\3\2"+
-		"\2\2\u00d2\u00d3\7\4\2\2\u00d3)\3\2\2\2\u00d4\u00d5\7\t\2\2\u00d5+\3\2"+
-		"\2\2\u00d6\u00d7\7\6\2\2\u00d7-\3\2\2\2\u00d8\u00d9\7\7\2\2\u00d9/\3\2"+
-		"\2\2\u00da\u00db\7\b\2\2\u00db\61\3\2\2\2\u00dc\u00dd\7\f\2\2\u00dd\63"+
-		"\3\2\2\2\u00de\u00df\7\n\2\2\u00df\65\3\2\2\2\u00e0\u00e1\7\21\2\2\u00e1"+
-		"\67\3\2\2\2\u00e2\u00e3\7\22\2\2\u00e39\3\2\2\2\u00e4\u00e5\7\23\2\2\u00e5"+
-		";\3\2\2\2\u00e6\u00e7\7\24\2\2\u00e7=\3\2\2\2\u00e8\u00e9\7\r\2\2\u00e9"+
-		"?\3\2\2\2\u00ea\u00eb\7\16\2\2\u00ebA\3\2\2\2\u00ec\u00ed\7\17\2\2\u00ed"+
-		"C\3\2\2\2\u00ee\u00ef\7\20\2\2\u00efE\3\2\2\2\u00f0\u00f1\7\3\2\2\u00f1"+
-		"G\3\2\2\2\21KRV_jp|\u0083\u008d\u0095\u009b\u00ad\u00b3\u00ba\u00be";
+		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\3\2\6\2L\n\2\r\2\16\2M\3\2\3\2\3\3\3\3\3"+
+		"\3\5\3U\n\3\3\4\3\4\3\4\5\4Z\n\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\5\5c\n\5"+
+		"\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\7\7q\n\7\f\7\16\7t\13"+
+		"\7\3\7\3\7\3\7\5\7y\n\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b\u0083\n\b"+
+		"\f\b\16\b\u0086\13\b\3\t\3\t\3\t\5\t\u008b\n\t\3\n\3\n\3\n\3\n\3\n\3\n"+
+		"\3\n\3\n\5\n\u0095\n\n\3\n\3\n\3\n\3\n\7\n\u009b\n\n\f\n\16\n\u009e\13"+
+		"\n\3\13\3\13\3\13\5\13\u00a3\n\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f"+
+		"\3\f\3\f\3\f\3\f\3\f\7\f\u00b3\n\f\f\f\16\f\u00b6\13\f\3\f\3\f\3\f\5\f"+
+		"\u00bb\n\f\3\r\3\r\3\r\3\r\3\r\5\r\u00c2\n\r\3\16\3\16\5\16\u00c6\n\16"+
+		"\3\16\3\16\3\16\3\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23"+
+		"\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3\32"+
+		"\3\33\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3\37\3 \3 \3!\3!\3\"\3\""+
+		"\3#\3#\3$\3$\3%\3%\3%\2\3\22&\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 "+
+		"\"$&(*,.\60\62\64\668:<>@BDFH\2\2\2\u00ea\2K\3\2\2\2\4T\3\2\2\2\6Y\3\2"+
+		"\2\2\b]\3\2\2\2\nd\3\2\2\2\fi\3\2\2\2\16z\3\2\2\2\20\u008a\3\2\2\2\22"+
+		"\u0094\3\2\2\2\24\u00a2\3\2\2\2\26\u00a4\3\2\2\2\30\u00c1\3\2\2\2\32\u00c5"+
+		"\3\2\2\2\34\u00cb\3\2\2\2\36\u00cd\3\2\2\2 \u00cf\3\2\2\2\"\u00d1\3\2"+
+		"\2\2$\u00d3\3\2\2\2&\u00d5\3\2\2\2(\u00d7\3\2\2\2*\u00d9\3\2\2\2,\u00db"+
+		"\3\2\2\2.\u00dd\3\2\2\2\60\u00df\3\2\2\2\62\u00e1\3\2\2\2\64\u00e3\3\2"+
+		"\2\2\66\u00e5\3\2\2\28\u00e7\3\2\2\2:\u00e9\3\2\2\2<\u00eb\3\2\2\2>\u00ed"+
+		"\3\2\2\2@\u00ef\3\2\2\2B\u00f1\3\2\2\2D\u00f3\3\2\2\2F\u00f5\3\2\2\2H"+
+		"\u00f7\3\2\2\2JL\5\4\3\2KJ\3\2\2\2LM\3\2\2\2MK\3\2\2\2MN\3\2\2\2NO\3\2"+
+		"\2\2OP\7\2\2\3P\3\3\2\2\2QU\5\6\4\2RU\5\26\f\2SU\5\32\16\2TQ\3\2\2\2T"+
+		"R\3\2\2\2TS\3\2\2\2U\5\3\2\2\2VZ\5\b\5\2WZ\5\f\7\2XZ\5\n\6\2YV\3\2\2\2"+
+		"YW\3\2\2\2YX\3\2\2\2Z[\3\2\2\2[\\\5H%\2\\\7\3\2\2\2]^\5\20\t\2^b\5\36"+
+		"\20\2_`\5\34\17\2`a\5\22\n\2ac\3\2\2\2b_\3\2\2\2bc\3\2\2\2c\t\3\2\2\2"+
+		"de\5<\37\2ef\5\36\20\2fg\5\34\17\2gh\5\62\32\2h\13\3\2\2\2ij\5\20\t\2"+
+		"jk\5\36\20\2kl\5 \21\2lr\5\"\22\2mn\5 \21\2no\5\"\22\2oq\3\2\2\2pm\3\2"+
+		"\2\2qt\3\2\2\2rp\3\2\2\2rs\3\2\2\2sx\3\2\2\2tr\3\2\2\2uv\5\34\17\2vw\5"+
+		"\22\n\2wy\3\2\2\2xu\3\2\2\2xy\3\2\2\2y\r\3\2\2\2z{\5\36\20\2{|\5 \21\2"+
+		"|}\5.\30\2}\u0084\5\"\22\2~\177\5 \21\2\177\u0080\5.\30\2\u0080\u0081"+
+		"\5\"\22\2\u0081\u0083\3\2\2\2\u0082~\3\2\2\2\u0083\u0086\3\2\2\2\u0084"+
+		"\u0082\3\2\2\2\u0084\u0085\3\2\2\2\u0085\17\3\2\2\2\u0086\u0084\3\2\2"+
+		"\2\u0087\u008b\58\35\2\u0088\u008b\5:\36\2\u0089\u008b\5> \2\u008a\u0087"+
+		"\3\2\2\2\u008a\u0088\3\2\2\2\u008a\u0089\3\2\2\2\u008b\21\3\2\2\2\u008c"+
+		"\u008d\b\n\1\2\u008d\u008e\5$\23\2\u008e\u008f\5\22\n\2\u008f\u0090\5"+
+		"&\24\2\u0090\u0095\3\2\2\2\u0091\u0095\5\24\13\2\u0092\u0095\5\16\b\2"+
+		"\u0093\u0095\5\36\20\2\u0094\u008c\3\2\2\2\u0094\u0091\3\2\2\2\u0094\u0092"+
+		"\3\2\2\2\u0094\u0093\3\2\2\2\u0095\u009c\3\2\2\2\u0096\u0097\f\7\2\2\u0097"+
+		"\u0098\5,\27\2\u0098\u0099\5\22\n\b\u0099\u009b\3\2\2\2\u009a\u0096\3"+
+		"\2\2\2\u009b\u009e\3\2\2\2\u009c\u009a\3\2\2\2\u009c\u009d\3\2\2\2\u009d"+
+		"\23\3\2\2\2\u009e\u009c\3\2\2\2\u009f\u00a3\5.\30\2\u00a0\u00a3\5\60\31"+
+		"\2\u00a1\u00a3\5\62\32\2\u00a2\u009f\3\2\2\2\u00a2\u00a0\3\2\2\2\u00a2"+
+		"\u00a1\3\2\2\2\u00a3\25\3\2\2\2\u00a4\u00a5\5@!\2\u00a5\u00a6\5$\23\2"+
+		"\u00a6\u00a7\5\30\r\2\u00a7\u00a8\5&\24\2\u00a8\u00a9\5F$\2\u00a9\u00aa"+
+		"\5*\26\2\u00aa\u00ab\5\4\3\2\u00ab\u00ba\5(\25\2\u00ac\u00ad\5B\"\2\u00ad"+
+		"\u00ae\5$\23\2\u00ae\u00af\5\30\r\2\u00af\u00b0\5&\24\2\u00b0\u00b1\5"+
+		"\4\3\2\u00b1\u00b3\3\2\2\2\u00b2\u00ac\3\2\2\2\u00b3\u00b6\3\2\2\2\u00b4"+
+		"\u00b2\3\2\2\2\u00b4\u00b5\3\2\2\2\u00b5\u00b7\3\2\2\2\u00b6\u00b4\3\2"+
+		"\2\2\u00b7\u00b8\5D#\2\u00b8\u00b9\5\4\3\2\u00b9\u00bb\3\2\2\2\u00ba\u00b4"+
+		"\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\27\3\2\2\2\u00bc\u00bd\5\22\n\2\u00bd"+
+		"\u00be\5\66\34\2\u00be\u00bf\5\22\n\2\u00bf\u00c2\3\2\2\2\u00c0\u00c2"+
+		"\5\64\33\2\u00c1\u00bc\3\2\2\2\u00c1\u00c0\3\2\2\2\u00c2\31\3\2\2\2\u00c3"+
+		"\u00c6\5\6\4\2\u00c4\u00c6\5\36\20\2\u00c5\u00c3\3\2\2\2\u00c5\u00c4\3"+
+		"\2\2\2\u00c6\u00c7\3\2\2\2\u00c7\u00c8\5\34\17\2\u00c8\u00c9\5\22\n\2"+
+		"\u00c9\u00ca\5H%\2\u00ca\33\3\2\2\2\u00cb\u00cc\7\26\2\2\u00cc\35\3\2"+
+		"\2\2\u00cd\u00ce\7\25\2\2\u00ce\37\3\2\2\2\u00cf\u00d0\7\34\2\2\u00d0"+
+		"!\3\2\2\2\u00d1\u00d2\7\35\2\2\u00d2#\3\2\2\2\u00d3\u00d4\7\32\2\2\u00d4"+
+		"%\3\2\2\2\u00d5\u00d6\7\33\2\2\u00d6\'\3\2\2\2\u00d7\u00d8\7\5\2\2\u00d8"+
+		")\3\2\2\2\u00d9\u00da\7\4\2\2\u00da+\3\2\2\2\u00db\u00dc\7\t\2\2\u00dc"+
+		"-\3\2\2\2\u00dd\u00de\7\6\2\2\u00de/\3\2\2\2\u00df\u00e0\7\7\2\2\u00e0"+
+		"\61\3\2\2\2\u00e1\u00e2\7\b\2\2\u00e2\63\3\2\2\2\u00e3\u00e4\7\f\2\2\u00e4"+
+		"\65\3\2\2\2\u00e5\u00e6\7\n\2\2\u00e6\67\3\2\2\2\u00e7\u00e8\7\21\2\2"+
+		"\u00e89\3\2\2\2\u00e9\u00ea\7\22\2\2\u00ea;\3\2\2\2\u00eb\u00ec\7\23\2"+
+		"\2\u00ec=\3\2\2\2\u00ed\u00ee\7\24\2\2\u00ee?\3\2\2\2\u00ef\u00f0\7\r"+
+		"\2\2\u00f0A\3\2\2\2\u00f1\u00f2\7\16\2\2\u00f2C\3\2\2\2\u00f3\u00f4\7"+
+		"\17\2\2\u00f4E\3\2\2\2\u00f5\u00f6\7\20\2\2\u00f6G\3\2\2\2\u00f7\u00f8"+
+		"\7\3\2\2\u00f8I\3\2\2\2\21MTYbrx\u0084\u008a\u0094\u009c\u00a2\u00b4\u00ba"+
+		"\u00c1\u00c5";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

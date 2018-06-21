@@ -48,6 +48,16 @@ public interface myGrammarListener extends ParseTreeListener {
 	 */
 	void exitVariableDec(myGrammarParser.VariableDecContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link myGrammarParser#stringDec}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringDec(myGrammarParser.StringDecContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link myGrammarParser#stringDec}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringDec(myGrammarParser.StringDecContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link myGrammarParser#arrayDec}.
 	 * @param ctx the parse tree
 	 */
@@ -242,15 +252,15 @@ public interface myGrammarListener extends ParseTreeListener {
 	 */
 	void exitIntegerTok(myGrammarParser.IntegerTokContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link myGrammarParser#floatTok}.
+	 * Enter a parse tree produced by {@link myGrammarParser#doubleTok}.
 	 * @param ctx the parse tree
 	 */
-	void enterFloatTok(myGrammarParser.FloatTokContext ctx);
+	void enterDoubleTok(myGrammarParser.DoubleTokContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link myGrammarParser#floatTok}.
+	 * Exit a parse tree produced by {@link myGrammarParser#doubleTok}.
 	 * @param ctx the parse tree
 	 */
-	void exitFloatTok(myGrammarParser.FloatTokContext ctx);
+	void exitDoubleTok(myGrammarParser.DoubleTokContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link myGrammarParser#stringTok}.
 	 * @param ctx the parse tree
@@ -292,15 +302,15 @@ public interface myGrammarListener extends ParseTreeListener {
 	 */
 	void exitIntegerTypeTok(myGrammarParser.IntegerTypeTokContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link myGrammarParser#floatTypeTok}.
+	 * Enter a parse tree produced by {@link myGrammarParser#doubleTypeTok}.
 	 * @param ctx the parse tree
 	 */
-	void enterFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx);
+	void enterDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link myGrammarParser#floatTypeTok}.
+	 * Exit a parse tree produced by {@link myGrammarParser#doubleTypeTok}.
 	 * @param ctx the parse tree
 	 */
-	void exitFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx);
+	void exitDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link myGrammarParser#stringTypeTok}.
 	 * @param ctx the parse tree

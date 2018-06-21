@@ -31,9 +31,9 @@ public class LolVisitor extends myGrammarBaseVisitor<String> {
         try {
 
             //output definition
-            out = new FileWriter("D:\\STUDIA\\6 SEMESTR\\Kompilatory\\Jlol\\src\\com\\sosen\\results\\JlolXD.java");
+            out = new FileWriter("D:\\STUDIA\\6 SEMESTR\\Kompilatory\\Jlol\\src\\com\\sosen\\results\\JLolXD.java");
             out.write("package com.sosen.results; \n");
-            out.write("public class JLol { \n public static void main(String [] args){ \n");
+            out.write("public class JLolXD { \n public static void main(String [] args){ \n");
 
             //out.write("#include \"Variable.java\"\n\n");
 
@@ -197,14 +197,16 @@ public class LolVisitor extends myGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitFloatTok(myGrammarParser.FloatTokContext ctx) {
-        print(ctx.Float().getSymbol().getText() + " ");
-        return super.visitFloatTok(ctx);
+    public String visitDoubleTok(myGrammarParser.DoubleTokContext ctx) {
+        print(ctx.Double().getSymbol().getText() + " ");
+        return super.visitDoubleTok(ctx);
     }
 
     @Override
     public String visitStringTok(myGrammarParser.StringTokContext ctx) {
+        print("\"");
         print(ctx.String().getSymbol().getText() + " ");
+        print("\"");
         return super.visitStringTok(ctx);
     }
 
@@ -227,14 +229,15 @@ public class LolVisitor extends myGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx) {
-        print(ctx.FloatType().getSymbol().getText() + " ");
-        return super.visitFloatTypeTok(ctx);
+    public String visitDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx) {
+        print(ctx.DoubleType().getSymbol().getText() + " ");
+        return super.visitDoubleTypeTok(ctx);
     }
 
     @Override
     public String visitStringTypeTok(myGrammarParser.StringTypeTokContext ctx) {
-        print(ctx.StringType().getSymbol().getText() + " ");
+        System.out.print(" visiting str type tok " + ctx.StringType().getSymbol().getText());
+        print(ctx.StringType().getSymbol().getText() + "  ");
         return super.visitStringTypeTok(ctx);
     }
 
@@ -287,5 +290,11 @@ public class LolVisitor extends myGrammarBaseVisitor<String> {
         print(";\n");
         return super.visitXdTok(ctx);
 
+    }
+
+    @Override
+    public String visitStringDec(myGrammarParser.StringDecContext ctx){
+        visitChildren(ctx);
+        return "OK";
     }
 }

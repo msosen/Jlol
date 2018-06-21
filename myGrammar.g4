@@ -24,6 +24,8 @@ declaration : (variableDec | arrayDec) xdTok;
 variableDec : varType varNameTok
         ( equalMarkTok value)?;
 
+stringDec: stringTypeTok varNameTok (equalMarkTok stringTok);
+
 arrayDec : varType varNameTok squareOpenBracketTok squareCloseBracketTok
         (squareOpenBracketTok squareCloseBracketTok)*
         ( equalMarkTok value)?;
@@ -34,8 +36,8 @@ arrayVal : varNameTok squareOpenBracketTok integerTok squareCloseBracketTok
 
 varType :
     integerTypeTok
-    | floatTypeTok
-    |stringTypeTok
+    | doubleTypeTok
+    | stringTypeTok
     |booleanTypeTok;
 
 
@@ -51,7 +53,7 @@ value:
 
 variableType:
     integerTok
-    | floatTok
+    | doubleTok
     | stringTok;
 
 
@@ -81,13 +83,13 @@ blockOpenBracketTok : BlockOpenBracket;
 
 mathOperatorTok : MathOperator;
 integerTok : Integer;
-floatTok : Float;
+doubleTok : Double;
 stringTok : String;
 booleanTok: Boolean;
 booleanOperatorTok : BooleanOperator;
 
 integerTypeTok : IntegerType;
-floatTypeTok : FloatType;
+doubleTypeTok : DoubleType;
 stringTypeTok : StringType;
 booleanTypeTok : BooleanType;
 
@@ -109,7 +111,7 @@ BlockCloseBracket: '}';
 
 Integer : Digit+;
 
-Float : Integer Dot Integer;
+Double : Integer Dot Integer;
 
 String : QuoteMark CharSequence QuoteMark;
 
@@ -122,8 +124,8 @@ Elsif: 'elsif';
 Else: 'else';
 Then: 'then';
 IntegerType: 'int';
-FloatType: 'float';
-StringType: 'string';
+DoubleType: 'double';
+StringType: 'String';
 BooleanType : 'boolean';
 VarName : Char (Char | Digit)*;
 EqualMark : '=' ;

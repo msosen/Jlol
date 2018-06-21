@@ -64,6 +64,18 @@ public class myGrammarBaseListener implements myGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStringDec(myGrammarParser.StringDecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringDec(myGrammarParser.StringDecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterArrayDec(myGrammarParser.ArrayDecContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -292,13 +304,13 @@ public class myGrammarBaseListener implements myGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFloatTok(myGrammarParser.FloatTokContext ctx) { }
+	@Override public void enterDoubleTok(myGrammarParser.DoubleTokContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFloatTok(myGrammarParser.FloatTokContext ctx) { }
+	@Override public void exitDoubleTok(myGrammarParser.DoubleTokContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -352,13 +364,13 @@ public class myGrammarBaseListener implements myGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx) { }
+	@Override public void enterDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFloatTypeTok(myGrammarParser.FloatTypeTokContext ctx) { }
+	@Override public void exitDoubleTypeTok(myGrammarParser.DoubleTypeTokContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,6 +1,6 @@
-int elo = 23 XD
-float xx = 67.9 XD
-if ( elo > 98989.3) then {
-    xx = 89.7 + elo XD
+int myInt = 23 XD
+double myDouble = 67.9 XD
+if ( myInt > 98989.3) then {
+    myDouble = 89.7 + myInt XD
     }
-	
+boolean myBook = true XD
